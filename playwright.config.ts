@@ -2,5 +2,21 @@ import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
-  reporter: 'html'
+  testMatch: '**/*.@(test|spec).ts',
+  reporter: 'html',
+
+  use: {
+    baseURL: 'http://localhost:3000',
+    screenshot: 'only-on-failure',
+    // headless: false,        // раскомментируй, если нужно видеть браузер
+    launchOptions: { 
+      slowMo: 1000 
+    },
+  },
+
+  webServer: {
+    command: 'npm start',
+    url: 'http://localhost:3000',
+    reuseExistingServer: true,
+  },
 });
