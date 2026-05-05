@@ -9,4 +9,5 @@ test('Example test', async ({ page }) => {
 
   await page.getByRole('button', { name: 'Register' }).click();
   await page.getByText('Please enter a valid email address').click();
+  
 });
